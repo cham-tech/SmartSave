@@ -1,0 +1,13 @@
+{
+    "name": "smartsave-circle/app",
+    "description": "SmartSave Circle - Savings and Micro-lending Platform",
+    "type": "project",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "SmartSaveCircle\\": "src/"
+        }
+    }
+}

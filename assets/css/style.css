@@ -1,0 +1,184 @@
+/* File: /assets/css/style.css */
+
+/* Base styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+/* Navbar styles */
+.navbar-brand {
+    font-weight: 700;
+}
+
+/* Card styles */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-weight: 600;
+}
+
+/* Button styles */
+.btn {
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-outline-primary {
+    color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+/* Progress bar styles */
+.progress {
+    border-radius: 10px;
+}
+
+.progress-bar {
+    background-color: #0d6efd;
+}
+
+/* Alert styles */
+.alert {
+    border-radius: 8px;
+}
+
+/* Table styles */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    font-weight: 600;
+    background-color: #f8f9fa;
+}
+
+/* Form styles */
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Badge styles */
+.badge {
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #212529;
+    color: #fff;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 15px;
+    }
+    
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+
+/* Custom styles for savings progress */
+.savings-progress {
+    height: 20px;
+    border-radius: 10px;
+}
+
+/* Notification badge */
+.navbar .badge {
+    position: relative;
+    top: -8px;
+    right: -5px;
+    font-size: 10px;
+    padding: 3px 6px;
+}
+
+/* Dashboard stats cards */
+.card.bg-primary, 
+.card.bg-success, 
+.card.bg-info, 
+.card.bg-warning {
+    color: #fff;
+}
+
+.card.bg-primary .card-text,
+.card.bg-success .card-text,
+.card.bg-info .card-text,
+.card.bg-warning .card-text {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Profile avatar */
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    background-color: #0d6efd;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+}
+
+/* Loan status badges */
+.badge.bg-warning {
+    background-color: #ffc107 !important;
+}
+
+.badge.bg-info {
+    background-color: #0dcaf0 !important;
+}
+
+.badge.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+.badge.bg-primary {
+    background-color: #0d6efd !important;
+}
+
+.badge.bg-success {
+    background-color: #198754 !important;
+}
