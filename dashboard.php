@@ -54,19 +54,19 @@ $stmt->close();
 // Get recent transactions (savings and loans)
 $recentTransactions = [];
 $stmt = $conn->prepare("
-    (SELECT 'saving' as type, amount, transaction_date as date, transaction_reference as reference 
+    (SELECT 'saving' as type, st.amount, transaction_date as date, transaction_reference as reference 
      FROM savings_transactions st
      JOIN savings_goals sg ON st.savings_goal_id = sg.id
      WHERE sg.user_id = ? AND st.status = 'completed'
-     ORDER BY date DESC LIMIT 3)
+     ORDER BY st.transaction_date DESC LIMIT 3)
     
     UNION ALL
     
-    (SELECT 'loan' as type, amount, repayment_date as date, transaction_reference as reference 
+    (SELECT 'loan' as type, lr.amount, repayment_date as date, transaction_reference as reference 
      FROM loan_repayments lr
      JOIN loans l ON lr.loan_id = l.id
      WHERE l.user_id = ? AND lr.status = 'completed'
-     ORDER BY date DESC LIMIT 3)
+     ORDER BY lr.repayment_date DESC LIMIT 3)
     
     ORDER BY date DESC LIMIT 5
 ");

@@ -2,6 +2,7 @@
 // File: index.php
 
 require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/auth.php';
 
 // If user is logged in, redirect to dashboard
 if (isLoggedIn()) {

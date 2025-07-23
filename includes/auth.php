@@ -66,10 +66,15 @@ function loginUser($email, $password) {
     return ['success' => false, 'message' => 'Invalid email or password'];
 }
 
+// File: includes/auth.php
+
 function logoutUser() {
-    session_unset();
-    session_destroy();
+    session_start();            // Important: start the session before destroying it
+    $_SESSION = [];             // Clear session variables
+    session_unset();            // Optional: free all session variables
+    session_destroy();          // Destroy the session
 }
+
 
 function isLoggedIn() {
     return isset($_SESSION['user_id']);
