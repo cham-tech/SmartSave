@@ -1,6 +1,7 @@
 <?php
 // File: /includes/header.php
 
+require_once __DIR__ . '/session.php';
 require_once __DIR__ . '/../config/constants.php';
 
 if (!isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) != 'login.php' && basename($_SERVER['PHP_SELF']) != 'register.php') {
@@ -47,7 +48,7 @@ $conn->close();
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="index.php"><?php echo APP_NAME; ?></a>
+            <a class="nav-link" href="<?php echo (basename($_SERVER['PHP_SELF']) === 'login.php' || basename($_SERVER['PHP_SELF']) === 'register.php') ? '../index.php' : 'index.php'; ?>"><?php echo APP_NAME; ?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>

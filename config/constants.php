@@ -20,7 +20,10 @@ define('JS_PATH', ASSETS_PATH . '/js');
 define('IMG_PATH', ASSETS_PATH . '/img');
 
 // Session start
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 
 // Include database connection
 require_once 'db.php';
