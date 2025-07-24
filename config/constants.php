@@ -1,8 +1,7 @@
 <?php
-// File: /config/constants.php
 
 // Application Constants
-define('APP_NAME', 'SmartSave Circle');
+define('APP_NAME', 'SmartSave Sacco');
 define('APP_URL', 'http://localhost/SmartSave');
 define('APP_CURRENCY', 'UGX');
 

@@ -45,6 +45,7 @@ $conn->close();
     <link href="<?php echo CSS_PATH; ?>/bootstrap.min.css" rel="stylesheet">
     <!-- Your Custom CSS -->
     <link href="<?php echo CSS_PATH; ?>/style.css" rel="stylesheet">
+    <link href="<?php echo CSS_PATH; ?>/login.css" rel="stylesheet">
     <!-- Bootstrap JS (required for dropdowns, modals, etc.) -->
     <script src="<?php echo JS_PATH; ?>/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
