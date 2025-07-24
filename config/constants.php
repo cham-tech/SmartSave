@@ -3,7 +3,7 @@
 
 // Application Constants
 define('APP_NAME', 'SmartSave Circle');
-define('APP_URL', 'http://localhost/smart-save-circle');
+define('APP_URL', 'http://localhost/SmartSave');
 define('APP_CURRENCY', 'UGX');
 
 // Bitnob API Configuration
