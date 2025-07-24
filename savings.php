@@ -1,14 +1,23 @@
 <?php
-// File: savings.php
+// Start output buffering at the very top
+ob_start();
 
-require_once __DIR__ . '/includes/header.php';
+// File: loans.php
+require_once __DIR__ . '/includes/session.php';
 require_once __DIR__ . '/includes/auth.php';
-require_once __DIR__ . '/includes/functions.php';
 
+// Check authentication and redirect if needed
 if (!isLoggedIn()) {
     header('Location: login.php');
     exit;
 }
+
+// Then include header.php
+require_once __DIR__ . '/includes/header.php';
+
+require_once __DIR__ . '/includes/functions.php';
+
+// Rest of your code...
 
 $conn = getDBConnection();
 $userId = $_SESSION['user_id'];
