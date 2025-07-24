@@ -1,6 +1,12 @@
 <?php
 // File: /includes/auth.php
 
+
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+
 function registerUser($firstName, $lastName, $email, $phone, $password, $isAdmin = false) {
     $conn = getDBConnection();
     

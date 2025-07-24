@@ -12,7 +12,7 @@
                     <div class="col-md-3">
                         <h5>Quick Links</h5>
                         <ul class="list-unstyled">
-                            <li><a href="<?php echo (basename($_SERVER['PHP_SELF']) === 'login.php' || basename($_SERVER['PHP_SELF']) === 'register.php') ? '../index.php' : 'index.php'; ?>" class="text-white">Home</a></li>
+                            <li><a href="<?php echo APP_URL . '/index.php'; ?>">Home</a></li>
                             <li><a href="about.php" class="text-white">About</a></li>
                             <li><a href="contact.php" class="text-white">Contact</a></li>
                         </ul>
