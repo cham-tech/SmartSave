@@ -4,8 +4,6 @@
 require_once __DIR__ . '/session.php';
 require_once __DIR__ . '/../config/constants.php';
 
-
-
 $conn = getDBConnection();
 
 // Get user data if logged in
@@ -38,14 +36,26 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo APP_NAME . ' | ' . (isset($page_title) ? $page_title : ''); ?></title>
-    <!-- Bootstrap CSS -->
     <link href="<?php echo CSS_PATH; ?>/bootstrap.min.css" rel="stylesheet">
-    <!-- Your Custom CSS -->
     <link href="<?php echo CSS_PATH; ?>/style.css" rel="stylesheet">
     <link href="<?php echo CSS_PATH; ?>/login.css" rel="stylesheet">
-    <!-- Bootstrap JS (required for dropdowns, modals, etc.) -->
-    <!-- <script src="<?php echo JS_PATH; ?>/bootstrap.bundle.min.js"></script> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -57,29 +67,19 @@ $conn->close();
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <?php if ($user): ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="dashboard.php">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="savings.php">My Savings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="loans.php">Loans</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="groups.php">Savings Circles</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="savings.php">My Savings</a></li>
+                        <li class="nav-item"><a class="nav-link" href="loans.php">Loans</a></li>
+                        <li class="nav-item"><a class="nav-link" href="groups.php">Savings Circles</a></li>
                     <?php endif; ?>
                     <?php if ($user && $user['is_admin']): ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin/dashboard.php">Admin</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="admin/dashboard.php">Admin</a></li>
                     <?php endif; ?>
                 </ul>
                 <ul class="navbar-nav">
                     <?php if ($user): ?>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                 <i class="bi bi-bell-fill"></i>
                                 <?php if ($unread_notifications > 0): ?>
                                     <span class="badge bg-danger"><?php echo $unread_notifications; ?></span>
@@ -93,7 +93,6 @@ $conn->close();
                                 $stmt->bind_param("i", $user['id']);
                                 $stmt->execute();
                                 $result = $stmt->get_result();
-                                
                                 if ($result->num_rows > 0) {
                                     while ($notification = $result->fetch_assoc()) {
                                         echo '<li><a class="dropdown-item' . ($notification['is_read'] ? '' : ' fw-bold') . '" href="#">' . $notification['title'] . '</a></li>';
@@ -109,7 +108,7 @@ $conn->close();
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                 <i class="bi bi-person-circle"></i> <?php echo htmlspecialchars($user['first_name']); ?>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
@@ -119,23 +118,13 @@ $conn->close();
                             </ul>
                         </li>
                     <?php else: ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.php">Register</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
         </div>
     </nav>
-    <main class="container my-4">
-    </main>
 
-    <!-- Bootstrap JS (CDN) with Popper (RECOMMENDED to fix dropdown) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoYpI7Q7a2eQ5V8ffRxz9FUfZLr9Gc1jfZozRvo0M+9FjF2"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+    <!-- Start of content wrapper -->
+    <div class="content-wrapper container-fluid mt-4">
