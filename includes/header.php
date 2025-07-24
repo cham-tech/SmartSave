@@ -47,7 +47,7 @@ $conn->close();
     <link href="<?php echo CSS_PATH; ?>/style.css" rel="stylesheet">
     <link href="<?php echo CSS_PATH; ?>/login.css" rel="stylesheet">
     <!-- Bootstrap JS (required for dropdowns, modals, etc.) -->
-    <script src="<?php echo JS_PATH; ?>/bootstrap.bundle.min.js"></script>
+    <!-- <script src="<?php echo JS_PATH; ?>/bootstrap.bundle.min.js"></script> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 </head>
 <body>
@@ -134,3 +134,11 @@ $conn->close();
         </div>
     </nav>
     <main class="container my-4">
+    </main>
+
+    <!-- Bootstrap JS (CDN) with Popper (RECOMMENDED to fix dropdown) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoYpI7Q7a2eQ5V8ffRxz9FUfZLr9Gc1jfZozRvo0M+9FjF2"
+        crossorigin="anonymous"></script>
+</body>
+</html>
