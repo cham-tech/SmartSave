@@ -1,21 +1,24 @@
 <?php
 // File: index.php
 
-require_once __DIR__ . '/includes/header.php';
-require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/auth.php';  // session_start() + isLoggedIn()
 
-// If user is logged in, redirect to dashboard
+// Redirect logged-in users to dashboard before sending any output
 if (isLoggedIn()) {
     header('Location: dashboard.php');
     exit;
 }
+
+$page_title = "Welcome";
+
+require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="hero-section bg-primary text-white py-5">
     <div class="container py-5">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h1 class="display-4 fw-bold mb-4">SmartSave Circle</h1>
+                <h1 class="display-4 fw-bold mb-4">SmartSave</h1>
                 <p class="lead mb-4">A smarter way to save, borrow, and grow your money together with your community.</p>
                 <div class="d-flex gap-3">
                     <a href="register.php" class="btn btn-light btn-lg">Get Started</a>

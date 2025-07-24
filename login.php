@@ -9,6 +9,10 @@ if (isLoggedIn()) {
 }
 
 $error = '';
+$successMessage = '';
+if (isset($_GET['registered']) && $_GET['registered'] == 1) {
+    $successMessage = 'Registration successful! Please log in.';
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
@@ -40,6 +44,12 @@ require_once __DIR__ . '/includes/header.php';
         </div>
 
         <div class="login-body">
+            <?php if ($successMessage): ?>
+                <div class="alert alert-success">
+                    <?php echo htmlspecialchars($successMessage); ?>
+                </div>
+            <?php endif; ?>
+
             <?php if ($error): ?>
                 <div class="alert-modern">
                     <i class="fas fa-exclamation-triangle"></i>
@@ -47,7 +57,7 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="login.php" data-ajax="true" id="loginForm">
+            <form method="POST" action="login.php" id="loginForm">
                 <div class="form-floating">
                     <input type="email" class="form-control" id="email" name="email" 
                            placeholder="name@example.com"
@@ -73,7 +83,6 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <button type="submit" class="btn login-btn" id="loginButton">
-                    <span class="loading-spinner"></span>
                     <span class="btn-text">Sign In</span>
                 </button>
             </form>
@@ -105,54 +114,7 @@ function togglePassword() {
     }
 }
 
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    const button = document.getElementById('loginButton');
-    const spinner = button.querySelector('.loading-spinner');
-    const btnText = button.querySelector('.btn-text');
-
-    button.disabled = true;
-    spinner.style.display = 'inline-block';
-    btnText.textContent = 'Signing In...';
-
-    if (!this.dataset.ajax) {
-        return true;
-    }
-
-    e.preventDefault();
-
-    const formData = new FormData(this);
-
-    fetch(this.action, {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            btnText.textContent = 'Success!';
-            setTimeout(() => {
-                window.location.href = data.redirect || 'dashboard.php';
-            }, 500);
-        } else {
-            throw new Error(data.message || 'Login failed');
-        }
-    })
-    .catch(error => {
-        button.disabled = false;
-        spinner.style.display = 'none';
-        btnText.textContent = 'Sign In';
-
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'alert-modern';
-        errorDiv.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${error.message}`;
-
-        const existingError = document.querySelector('.alert-modern');
-        if (existingError) existingError.remove();
-
-        this.insertBefore(errorDiv, this.firstChild);
-    });
-});
-
+// Optional: Floating label focus style JS remains
 document.querySelectorAll('.form-floating .form-control').forEach(input => {
     input.addEventListener('focus', function() {
         this.parentElement.classList.add('focused');

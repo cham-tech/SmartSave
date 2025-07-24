@@ -5,7 +5,6 @@ require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/auth.php';
 
 $error = '';
-$success = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $firstName = trim($_POST['first_name']);
@@ -28,8 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = registerUser($firstName, $lastName, $email, $phone, $password);
         
         if ($result['success']) {
-            $success = 'Registration successful! You can now login.';
-            $_POST = array(); // Clear form
+            // Redirect to login page immediately after successful registration
+            header('Location: login.php?registered=1');
+            exit;
         } else {
             $error = $result['message'];
         }
@@ -45,11 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="card-body">
                 <?php if ($error): ?>
-                    <div class="alert alert-danger"><?php echo $error; ?></div>
-                <?php endif; ?>
-                
-                <?php if ($success): ?>
-                    <div class="alert alert-success"><?php echo $success; ?></div>
+                    <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
                 <?php endif; ?>
                 
                 <form method="POST" action="register.php">
