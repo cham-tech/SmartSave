@@ -43,6 +43,7 @@ $conn->close();
     <title><?php echo APP_NAME . ' | ' . (isset($page_title) ? $page_title : ''); ?></title>
     <link href="<?php echo CSS_PATH; ?>/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo CSS_PATH; ?>/style.css" rel="stylesheet">
+    <link href="<?php echo CSS_PATH; ?>/login.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 </head>
 <body>
