@@ -100,19 +100,19 @@ $conn->close();
                 </div>
                 <div class="card-body">
                     <?php if (empty($recentTransactions)): ?>
-                        <p class="text-muted">No recent transactions found.</p>
+                        <p class="text-primary">No recent transactions found.</p>
                     <?php else: ?>
                         <div class="list-group">
                             <?php foreach ($recentTransactions as $transaction): ?>
                                 <div class="list-group-item">
-                                    <div class="d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between text-primary">
                                         <h6 class="mb-1">
                                             <?php echo $transaction['type'] === 'saving' ? 'Savings Deposit' : 'Loan Repayment'; ?>
                                         </h6>
                                         <small><?php echo date('M j, Y', strtotime($transaction['date'])); ?></small>
                                     </div>
-                                    <p class="mb-1 fw-semibold"><?php echo formatCurrency($transaction['amount']); ?></p>
-                                    <small class="text-muted">Ref: <?php echo $transaction['reference']; ?></small>
+                                    <p class="mb-1 fw-semibold text-primary"><?php echo formatCurrency($transaction['amount']); ?></p>
+                                    <small class="text-primary">Ref: <?php echo $transaction['reference']; ?></small>
                                 </div>
                             <?php endforeach; ?>
                         </div>
@@ -123,7 +123,7 @@ $conn->close();
     </div>
 
     <!-- Savings Goals & Loans -->
-    <div class="row g-4 mb-4">
+    <div class="row g-4 mb-4 ">
         <!-- Savings Goals -->
         <div class="col-md-6">
             <div class="card h-100">
@@ -132,14 +132,14 @@ $conn->close();
                 </div>
                 <div class="card-body">
                     <?php if (empty($savingsGoals)): ?>
-                        <p class="text-muted">You don't have any savings goals yet.</p>
+                        <p class="text-primary">You don't have any savings goals yet.</p>
                         <a href="savings.php?action=new" class="btn btn-sm btn-primary">Create a Savings Goal</a>
                     <?php else: ?>
                         <div class="list-group">
                             <?php foreach ($savingsGoals as $goal): ?>
                                 <a href="savings.php?id=<?php echo $goal['id']; ?>" class="list-group-item list-group-item-action">
-                                    <div class="d-flex justify-content-between">
-                                        <h6 class="mb-1 fw-semibold"><?php echo htmlspecialchars($goal['goal_name']); ?></h6>
+                                    <div class="d-flex justify-content-between text-primary">
+                                        <h6 class="mb-1 fw-semibold "><?php echo htmlspecialchars($goal['goal_name']); ?></h6>
                                         <small><?php echo ucfirst($goal['frequency']); ?></small>
                                     </div>
                                     <p class="mb-1">
