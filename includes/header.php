@@ -166,7 +166,6 @@ $conn->close();
     <!-- Start of content wrapper -->
     <div class="content-wrapper container-fluid mt-4">
         
-         <script src="<?php echo JS_PATH; ?>/bootstrap.bundle.min.js"></script>
-                    </body>
+                             </body>
                     </html>
                     
