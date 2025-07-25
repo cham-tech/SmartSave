@@ -68,7 +68,7 @@ $conn->close();
 
 /* Optional: Adjust logo size and text alignment */
 .navbar-brand img {
-  width: 50x;
+  width: 50px;
   height: 50px;
 }
 
@@ -165,7 +165,7 @@ $conn->close();
 
     <!-- Start of content wrapper -->
     <div class="content-wrapper container-fluid mt-4">
-        
-                             </body>
-                    </html>
+                    </div>
+                
                     
+        

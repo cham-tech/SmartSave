@@ -37,5 +37,6 @@
 
     <script src="<?php echo JS_PATH; ?>/bootstrap.bundle.min.js"></script>
     <script src="<?php echo JS_PATH; ?>/main.js"></script>
+
 </body>
 </html>

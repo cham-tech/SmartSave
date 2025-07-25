@@ -14,19 +14,16 @@ $page_title = "Welcome";
 require_once __DIR__ . '/includes/header.php';
 ?>
 
-<div class="hero-section bg-primary text-white py-5">
-    <div class="container py-5">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h1 class="display-4 fw-bold mb-4">SmartSave</h1>
-                <p class="lead mb-4">A smarter way to save, borrow, and grow your money together with your community.</p>
-                <div class="d-flex gap-3">
-                    <a href="register.php" class="btn btn-light btn-lg">Get Started</a>
-                    <a href="login.php" class="btn btn-outline-light btn-lg">Login</a>
+<div class="hero-section">
+    <div class="hero-overlay">
+        <div class="container">
+            <div class="content">
+                <h1 class="display-4">SmartSave</h1>
+                <p class="lead">A smarter way to save, borrow, and grow your money together with your community.</p>
+                <div class="buttons">
+                    <a href="register.php" class="btn btn-light">Get Started</a>
+                    <a href="login.php" class="btn btn-outline-light">Login</a>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <img src="<?php echo IMG_PATH; ?>/savings-goal.png" alt="Savings illustration" class="img-fluid d-none d-md-block">
             </div>
         </div>
     </div>
@@ -148,11 +145,27 @@ require_once __DIR__ . '/includes/header.php';
     </div>
 </div>
 
-<div class="cta-section bg-primary text-white py-5">
-    <div class="container py-4 text-center">
-        <h2 class="fw-bold mb-4">Ready to take control of your finances?</h2>
-        <p class="lead mb-4">Join SmartSave Circle today and start your journey to financial freedom.</p>
-        <a href="register.php" class="btn btn-light btn-lg px-4">Sign Up Now</a>
+<div class="cta-section py-5">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <!-- Optional Image Column (remove if not needed) -->
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img src="assets/img/hero2.jpg" alt="Financial Planning" class="img-fluid rounded-3 shadow">
+            </div>
+            
+            <!-- Grey Card with Text Content -->
+            <div class="col-lg-6">
+                <div class="card border-0 bg-light-grey p-4 p-md-5 rounded-3 shadow-sm">  <!-- Grey card -->
+                    <div class="card-body text-center text-md-start">
+                        <h2 class="fw-bold mb-3 text-dark">Ready to take control of your finances?</h2>
+                        <p class="lead mb-4 text-muted">Join SmartSave Circle today and start your journey to financial freedom.</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <a href="register.php" class="btn btn-primary btn-lg px-4">Sign Up Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
