@@ -265,7 +265,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p class="lead"><?php echo formatCurrency($goal['current_amount']); ?> of <?php echo formatCurrency($goal['target_amount']); ?></p>
 
                     <div class="progress mb-4" style="height: 20px;">
-                        <div class="progress-bar progress-bar-striped bg-success" 
+                        <div class="progress-bar progress-bar-striped bg-warning" 
                              style="width: <?php echo getSavingsProgressPercentage($goal['current_amount'], $goal['target_amount']); ?>%">
                             <?php echo getSavingsProgressPercentage($goal['current_amount'], $goal['target_amount']); ?>%
                         </div>
@@ -425,9 +425,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->close();
     ?>
     <div class="row">
-        <div class="col-12 d-flex justify-content-between align-items-center mb-4">
+        <div class="col-12  d-flex justify-content-between align-items-center mb-4">
             <h2>My Savings Goals</h2>
-            <a href="savings.php?action=new" class="btn btn-success">+ New Goal</a>
+            <a href="savings.php?action=new" class="btn btn-primary">+ New Goal</a>
         </div>
     </div>
 
@@ -444,7 +444,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <?php echo formatCurrency($goal['current_amount']); ?> / <?php echo formatCurrency($goal['target_amount']); ?>
                         </p>
                         <div class="progress mb-3" style="height: 10px;">
-                            <div class="progress-bar bg-success" role="progressbar" 
+                            <div class="progress-bar bg-warning" role="progressbar" 
                                  style="width: <?php echo getSavingsProgressPercentage($goal['current_amount'], $goal['target_amount']); ?>%;" 
                                  aria-valuenow="<?php echo getSavingsProgressPercentage($goal['current_amount'], $goal['target_amount']); ?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>

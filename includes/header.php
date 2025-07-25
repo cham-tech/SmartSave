@@ -55,17 +55,54 @@ $conn->close();
         .content-wrapper {
             flex: 1;
         }
+/* Reduce navbar height and spacing */
+.navbar {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.navbar .container {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* Optional: Adjust logo size and text alignment */
+.navbar-brand img {
+  width: 50x;
+  height: 50px;
+}
+
+.navbar-brand span {
+  font-size: 1.2rem;
+  font-family: 'Hanaei Fill', sans-serif;
+   
+}
+@font-face {
+  font-family: 'Hanaei Fill';
+  src: url('/assets/Hanaei-Fill.ttf') format('truetype');
+}
+
+
+
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="nav-link" href="<?php echo APP_URL . '/index.php'; ?>"><?php echo APP_NAME; ?></a>
+    <div class="container-fluid">
+        <!-- ✅ Fixed App Name + Logo (no navbar break) -->
+        <a class="navbar-brand d-flex align-items-center" href="<?php echo APP_URL . '/index.php'; ?>" style="gap: 0.5rem;">
+            <img src="<?php echo APP_URL; ?>/assets/logo.png" alt="SmartSave Logo"  style="object-fit: contain;">
+            <span class="fw-bold text-warning fs-5">SmartSave</span>
+        </a>
+
+
+
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav ms-auto">
                     <?php if ($user): ?>
                         <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link" href="savings.php">My Savings</a></li>
@@ -128,3 +165,8 @@ $conn->close();
 
     <!-- Start of content wrapper -->
     <div class="content-wrapper container-fluid mt-4">
+        
+         <script src="<?php echo JS_PATH; ?>/bootstrap.bundle.min.js"></script>
+                    </body>
+                    </html>
+                    
